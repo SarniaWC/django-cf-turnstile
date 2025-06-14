@@ -75,7 +75,7 @@ class TurnstileCaptchaField(forms.CharField):
         error_code = next(iter(json_body.get("error-codes")), "captcha_error")
 
         if success is None or not isinstance(success, bool):
-            logger.warning("Captcha validation failed due to: %s" % error_code)
+            logger.info("Captcha validation failed due to: %s" % error_code)
             raise ValidationError(self.error_messages["captcha_error"], code=error_code)
 
         elif success is False:
