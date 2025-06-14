@@ -1,8 +1,11 @@
+from django import forms
 from django.test import TestCase
 
-from django import forms
-from django_cf_turnstile.fields import TurnstileCaptchaField
-from django_cf_turnstile.fields import TEST_SITE_KEY, TEST_SECRET_KEY
+from django_cf_turnstile.fields import (
+    TEST_SECRET_KEY,
+    TEST_SITE_KEY,
+    TurnstileCaptchaField,
+)
 
 
 class CaptchaSignupForm(forms.Form):
@@ -11,9 +14,7 @@ class CaptchaSignupForm(forms.Form):
 
 class CustomCaptchaSignupForm(forms.Form):
     captcha = TurnstileCaptchaField(
-        label="TestCaptcha",
-        site_key="CUSTOM_SITE_KEY",
-        secret_key="CUSTOM_SECRET_KEY"
+        label="TestCaptcha", site_key="CUSTOM_SITE_KEY", secret_key="CUSTOM_SECRET_KEY"
     )
 
 

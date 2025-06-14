@@ -1,8 +1,8 @@
-import unittest
-from unittest import mock
 import json
+import unittest
 import urllib.error
 import urllib.request
+from unittest import mock
 
 from django_cf_turnstile import client
 
@@ -10,9 +10,7 @@ from django_cf_turnstile import client
 class PostFormClientTest(unittest.TestCase):
     @mock.patch("urllib.request.urlopen")
     @mock.patch("urllib.request.Request")
-    def test_post_form_success_string_response(
-        self, mock_request_class, mock_urlopen
-    ):
+    def test_post_form_success_string_response(self, mock_request_class, mock_urlopen):
         mock_response_context = mock_urlopen.return_value.__enter__.return_value
         mock_response_context.status = 200
         mock_response_context.read.return_value = b"Success"
@@ -20,7 +18,7 @@ class PostFormClientTest(unittest.TestCase):
 
         # Mock the Request instance to check headers later if needed
         mock_req_instance = mock.Mock()
-        mock_req_instance.headers = {} # Simulate initial state
+        mock_req_instance.headers = {}  # Simulate initial state
         mock_request_class.return_value = mock_req_instance
 
         status, body = client.post_form("https://example.com", {"key": "value"})
@@ -40,9 +38,7 @@ class PostFormClientTest(unittest.TestCase):
         mock_response_context = mock_urlopen.return_value.__enter__.return_value
         mock_response_context.status = 200
         json_data = {"message": "ok"}
-        mock_response_context.read.return_value = json.dumps(json_data).encode(
-            "utf-8"
-        )
+        mock_response_context.read.return_value = json.dumps(json_data).encode("utf-8")
         mock_response_context.headers.get_content_charset.return_value = "utf-8"
 
         status, body = client.post_form(
