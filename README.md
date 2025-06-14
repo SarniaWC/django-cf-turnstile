@@ -6,9 +6,18 @@ captchas into django forms.
 Note that django-cf-turnstile only supports implicit rendering of widgets.
 
 
+## Requirements
+
+- Python: 3.10+
+- Django: 4.2+
+
+
 ## Installation
 
-Install the package with `pip install django-cf-turnstile`.
+Install the package with:
+```shell
+pip install django-cf-turnstile
+```
 
 Add "django_cf_turnstile" to your INSTALLED_APPS setting.
 ```python
