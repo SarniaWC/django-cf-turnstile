@@ -27,10 +27,10 @@ CF_TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
 CF_TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA"
 ```
 
-> Note that if you don't provide a site key and secret key the 
+> Note that if you don't provide a site key and secret key the
 > test site keys which always pass validation will be used.
 >
-> For more information on test keys see 
+> For more information on test keys see
 > https://developers.cloudflare.com/turnstile/troubleshooting/testing/.
 
 
